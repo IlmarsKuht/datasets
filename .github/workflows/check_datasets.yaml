@@ -11,5 +11,5 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Run script
-      run: bash ./path/to/script.sh
+      run: bash ./.github/scripts/check_datasets.bash
 
