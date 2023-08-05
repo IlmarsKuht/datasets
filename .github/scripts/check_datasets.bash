@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # loop over all files in the directory
-for file in *; do
+for file in ./datasets/*; do
     # check if file has .csv extension
     if [[ $file == *.csv ]]; then
         echo "Processing $file"
