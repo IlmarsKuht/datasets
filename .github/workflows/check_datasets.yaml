@@ -1,6 +1,12 @@
 name: Check Datasets
 
-on: [push, pull_request]
+on:
+  push:
+    paths:
+      - 'datasets/**'
+  pull_request:
+    paths:
+      - 'datasets/**'
 
 jobs:
   check_datasets:
