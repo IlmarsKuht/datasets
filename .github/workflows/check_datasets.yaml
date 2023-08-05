@@ -10,8 +10,6 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Install dependencies
-      run: sudo apt-get install -y awk
-
     - name: Run script
-      run: bash .github/scripts/check_datasets.bash
+      run: bash ./path/to/script.sh
+
