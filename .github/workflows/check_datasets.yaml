@@ -11,5 +11,5 @@ jobs:
       uses: actions/checkout@master
 
     - name: Run script
-      run: bash ./.github/scripts/check_datasets.bash
+      run: bash .github/scripts/check_datasets.bash
 
