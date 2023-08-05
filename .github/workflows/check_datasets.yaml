@@ -3,7 +3,7 @@ name: Check Datasets
 on: [push, pull_request]
 
 jobs:
-  check:
+  "Check Datasets":
     runs-on: ubuntu-latest
 
     steps:
