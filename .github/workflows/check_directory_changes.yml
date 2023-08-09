@@ -1,0 +1,24 @@
+name: Check Directory Changes
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  check_changes:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@master
+
+    - name: Check for changes in specific directory
+      run: |
+        CHANGED_FILES=$(git diff --name-only HEAD^ HEAD)
+        directory=datasets
+        for file in $CHANGED_FILES; do
+          if [[ "$file" == "$(directory)"/* ]]; then
+            echo "Error: Changes in the restricted $(directory) directory detected."
+            exit 1
+          fi
+        done

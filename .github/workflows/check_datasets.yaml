@@ -1,4 +1,4 @@
-name: Check Datasets
+name: Check if the format of the dataset is correct
 
 on:
   push:
