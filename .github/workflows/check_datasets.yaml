@@ -2,11 +2,9 @@ name: Check Dataset Format
 
 on:
   push:
-    paths:
-      - 'datasets/**'
-  pull_request:
-    paths:
-      - 'datasets/**'
+    branches:
+      - main
+      - update_datasets
 
 jobs:
   check_datasets:
