@@ -1,9 +1,10 @@
 #!/bin/bash
 
 error_found=0
+dataset_dir=classification
 
 # loop over all files in the directory
-for file in datasets/*; do
+for file in $(dataset_dir)/*; do
     # check if file has .csv extension
     if [[ $file == *.csv ]]; then
         echo "Processing $file"
