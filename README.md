@@ -10,3 +10,5 @@
 
 If your dataset doesn't meet these requirements, but you still want to upload it, put it in a separate folder that indicates that it does not meet the format. 
 Preferably you can make the folder indicating what requirement it does not meet.
+
+Later could make it process files in external storage, becaues you cannot add big files to github.
