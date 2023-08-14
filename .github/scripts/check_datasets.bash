@@ -37,7 +37,7 @@ for file in datasets/*; do
         fi
 
         # check if all other fields are numeric (integer or floating point)
-        if ! awk -F, -v num_fields="$num_fields" '{for(i=1; i<num_fields; i++) if($i !~ /^\s*-?(([0-9]+)|([0-9]*\.[0-9]+))\s*$/) exit 1}' "$file"; then
+        if ! awk -F, -v num_fields="$num_fields" '{for(i=1; i<=num_fields; i++) if($i !~ /^\s*-?(([0-9]+)|([0-9]*\.[0-9]+))\s*$/) exit 1}' "$file"; then
             echo "Error: Not all fields in $file are numeric"
             error_found=1
         fi
