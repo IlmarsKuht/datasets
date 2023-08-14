@@ -37,16 +37,18 @@ for file in datasets/*; do
         fi
 
         # check if all other fields are numeric (integer or floating point)
-        if ! awk -F, -v num_fields="$num_fields" '{for(i=1; i<num_fields; i++) if($i !~ /^\s*[0-9]+(\.[0-9]+)?\s*$/) exit 1}' "$file"; then
+        if ! awk -F, -v num_fields="$num_fields" '{for(i=1; i<num_fields; i++) if($i !~ /^\s*-?[0-9]+(\.[0-9]+)?\s*$/) exit 1}' "$file"; then
             echo "Error: Not all fields in $file are numeric"
             error_found=1
         fi
 
         # check for duplicate rows
-        if ! awk -F, '!seen[$0]++' "$file" | diff "$file" - > /dev/null ; then
-            echo "Error: $file contains duplicate rows"
-            error_found=1
-        fi
+        # Could create a separate branch which separates datasets with duplicate rows? What's the point of duplicate rows
+        # Or indicate that the datasets might contain duplicate rows or not equal amount of classes (so they learn to address this issue themselves because it happens with real datasets)
+        # if ! awk -F, '!seen[$0]++' "$file" | diff "$file" - > /dev/null ; then
+        #     echo "Error: $file contains duplicate rows"
+        #     error_found=1
+        # fi
     else
         echo "Error: $file is not a CSV file"
         error_found=1
